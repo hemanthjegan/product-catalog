@@ -1,0 +1,20 @@
+﻿@model IEnumerable<product_catalog_ecommerce.Models.Category>
+    @{
+    ViewBag.Title = "Categories";
+    }
+    <h2>Categories</h2>
+    <p><a class="btn btn-primary" href="@Url.Action("Create")">Create Category</a></p>
+    <table class="table table-striped">
+        <thead><tr><th>Name</th><th>Description</th><th></th></tr></thead>
+        <tbody>
+            @foreach(var c in Model) {
+            <tr>
+                <td>@c.Name</td>
+                <td>@c.Description</td>
+                <td>
+                    <a class="btn btn-sm btn-secondary" href="@Url.Action("Edit", new { id=c.CategoryId })">Edit</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>

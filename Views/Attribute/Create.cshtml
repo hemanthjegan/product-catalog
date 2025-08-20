@@ -1,0 +1,27 @@
+﻿@model product_catalog_ecommerce.Models.AttributeModel
+
+@{
+    ViewBag.Title = "Create Attribute";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create Attribute</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div class="form-group">
+    @Html.LabelFor(m => m.Name)
+    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.Name)
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.DataType)
+    @Html.TextBoxFor(m => m.DataType, new { @class = "form-control" })
+    @Html.ValidationMessageFor(m => m.DataType)
+</div>
+
+<button type="submit" class="btn btn-primary">Create</button>
+    @Html.ActionLink("Cancel", "Index", "Attribute", null, new { @class = "btn btn-default" })
+}

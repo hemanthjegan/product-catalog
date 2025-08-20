@@ -1,0 +1,40 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36" version="28.1.0">
+  <diagram id="ERD1" name="ERD">
+    <mxGraphModel dx="1042" dy="527" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="cat" value="Category&#xa;PK category_id:int&#xa;name:text&#xa;description:text" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#dae8fc;strokeColor=#6c8ebf;align=center;" parent="1" vertex="1">
+          <mxGeometry x="40" y="70" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="attr" value="Attribute&#xa;PK attribute_id:int&#xa;name:text&#xa;data_type:enum" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="300" y="70" width="200" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="catattr" value="CategoryAttribute&#xa;PK category_attribute_id:int&#xa;FK category_id&#xa;FK attribute_id&#xa;is_required:boolean" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="180" y="220" width="240" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="prod" value="Product&#xa;PK product_id:int&#xa;FK category_id&#xa;name:text&#xa;sku:text&#xa;price:decimal&#xa;created_at:datetime&#xa;updated_at:datetime" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
+          <mxGeometry x="40" y="370" width="260" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="pav" value="ProductAttributeValue&#xa;PK product_attribute_value_id:int&#xa;FK product_id&#xa;FK category_attribute_id&#xa;value:text/number" style="shape=rectangle;whiteSpace=wrap;rounded=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
+          <mxGeometry x="340" y="370" width="260" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" style="endArrow=block;" parent="1" source="cat" target="prod" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" style="endArrow=block;" parent="1" source="cat" target="catattr" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="endArrow=block;" parent="1" source="attr" target="catattr" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" style="endArrow=block;" parent="1" source="prod" target="pav" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" style="endArrow=block;" parent="1" source="catattr" target="pav" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

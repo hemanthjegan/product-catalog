@@ -1,0 +1,64 @@
+﻿@model product_catalog_ecommerce.Models.Product
+
+@{
+    ViewBag.Title = "Create Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create Product</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.SKU)
+        @Html.TextBoxFor(m => m.SKU, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Price)
+        @Html.TextBoxFor(m => m.Price, new { @class = "form-control", type = "number", step = "0.01" })
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Category")
+        @Html.DropDownListFor(m => m.CategoryId,
+            new SelectList(ViewBag.Categories, "CategoryId", "Name"),
+            "Select Category",
+            new { @class = "form-control", id = "CategorySelect" })
+    </div>
+
+    <div id="CategoryAttributes">
+        @* Dynamic attributes will be rendered here *@
+        @if (ViewBag.CategoryAttributes != null)
+        {
+            foreach (var attr in ViewBag.CategoryAttributes)
+            {
+                <div class="form-group">
+                    <label>@attr.AttributeName</label>
+                    <input type="text" name="attr_@attr.CategoryAttributeId" class="form-control" />
+                </div>
+            }
+        }
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+    @Html.ActionLink("Cancel", "Index", "Product", null, new { @class = "btn btn-default" })
+}
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('#CategorySelect').change(function () {
+                var categoryId = $(this).val();
+                $.get('@Url.Action("GetAttributes", "Product")', { categoryId: categoryId }, function (data) {
+                    $('#CategoryAttributes').html(data);
+                });
+            });
+        });
+    </script>
+}

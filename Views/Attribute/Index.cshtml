@@ -1,0 +1,31 @@
+﻿@model IEnumerable<product_catalog_ecommerce.Models.AttributeModel>
+
+    @{
+    ViewBag.Title = "Attributes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <h2>Attributes</h2>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Data Type</th>
+            <th>Actions</th>
+        </tr>
+        @foreach (var attr in Model)
+        {
+        <tr>
+            <td>@attr.AttributeId</td>
+            <td>@attr.Name</td>
+            <td>@attr.DataType</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = attr.AttributeId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = attr.AttributeId })
+            </td>
+        </tr>
+        }
+    </table>
+
+    @Html.ActionLink("Create New Attribute", "Create", "Attribute", null, new { @class = "btn btn-primary" })

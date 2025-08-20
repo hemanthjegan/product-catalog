@@ -1,0 +1,35 @@
+﻿@model IEnumerable<product_catalog_ecommerce.Models.Product>
+
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Products</h2>
+
+@Html.ActionLink("Create New Product", "Create", "Product", null, new { @class = "btn btn-primary" })
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>SKU</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Actions</th>
+    </tr>
+@foreach (var p in Model)
+{
+    <tr>
+        <td>@p.ProductId</td>
+        <td>@p.Name</td>
+        <td>@p.SKU</td>
+        <td>@p.CategoryId</td> @* Optional: replace with category name if needed *@
+        <td>@p.Price.ToString("C")</td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = p.ProductId }) |
+            @Html.ActionLink("Details", "Details", new { id = p.ProductId })
+        </td>
+    </tr>
+}
+</table>
