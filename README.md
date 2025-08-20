@@ -26,7 +26,8 @@ The tool enables internal users (merchandisers, category managers) to:
   - Product creation & updates
 - Deliverables:
   - **ERD (Entity Relationship Diagram)**:  
-    ( available in [product_catalog_erd.drawio](docs/product_catalog_erd.drawio))
+    ![ERD](docs/product_erd.png)  
+    (also available in [product_catalog_erd.drawio](docs/product_catalog_erd.drawio))
   - **Justification**:  
     - Normalized to avoid duplication  
     - Flexible: new categories & attributes can be added without schema changes  
@@ -38,7 +39,8 @@ The tool enables internal users (merchandisers, category managers) to:
 - Based on the database schema, created a **UML Class Diagram** to represent system structure.
 - Deliverables:
   - **Class Diagram**:  
-    (available in [product_catalog_uml.drawio](docs/product_catalog_uml.drawio))
+    ![UML](docs/product_uml.png) 
+    (also available in [product_catalog_uml.drawio](docs/product_catalog_uml.drawio))
 - Design highlights:
   - Clear **class relationships** (Category, Attribute, Product, etc.)  
   - Key **methods & responsibilities** for managing attributes & products  
@@ -61,4 +63,4 @@ The tool enables internal users (merchandisers, category managers) to:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/product-catalog-tool.git
+   git clone https://github.com/hemanthjegan/product-catalog.git
