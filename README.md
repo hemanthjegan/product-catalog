@@ -47,12 +47,18 @@ The tool enables internal users (merchandisers, category managers) to:
 ---
 
 ### **Step 3: Implementation**
-- Implemented the internal tool using **[Tech Stack of Choice]** (e.g., Python + Flask + PostgreSQL, or Node.js + Express + MySQL).
+- Implemented the internal tool using **.NET Framework 4.7, ASP.NET MVC, and ADO.NET**.
 - Functionality includes:
   - **Category Management** (add/update/delete categories)
   - **Attribute Management** (define per-category attributes)
   - **Product Management** (CRUD operations with category-specific attributes)
+- Backend built with **ADO.NET** for direct database interaction.  
+- Follows **MVC (Model-View-Controller)** architecture for clean separation of concerns.  
 
 ---
 
-## 📂 Repository Structure
+## ⚙️ How to Run the Project (ASP.NET MVC + ADO.NET)
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-username/product-catalog-tool.git
